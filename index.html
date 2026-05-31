@@ -3,114 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sips and Snack Corner</title>
+    <title>Sips and Snack by Mycha</title>
     <style>
-        /* Base Styles aligned with Minimalist Brand Aesthetic */
+        /* Exact Match to the Matte Black & White Minimalist Signage Theme */
         body {
-            background-color: #0d0d0d; /* Matte Black background */
+            background-color: #000000; /* Deep Matte Black */
             color: #ffffff; /* High-contrast white text */
-            font-family: 'Impact', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             padding: 20px;
         }
 
         header {
-            margin-top: 30px;
-            margin-bottom: 40px;
+            margin-top: 20px;
+            margin-bottom: 30px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            margin: 5px 0;
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            margin: 0;
+            font-weight: 800;
             text-transform: uppercase;
         }
 
         .subtitle {
-            font-size: 1rem;
-            color: #b3b3b3;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            color: #ffffff;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            margin-top: 5px;
+            margin-bottom: 30px;
         }
 
-        /* Feature Badges Grid */
-        .badge-container {
+        /* 2-Column Board Grid Layout matching image_96b746.png */
+        .board-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .promo-box {
-            border: 2px dashed #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: #141414;
-        }
-
-        .promo-box h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.1rem;
-        }
-
-        .promo-box p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #cccccc;
-        }
-
-        /* Menu Grid Layout */
-        .menu-section {
-            margin-bottom: 40px;
+            gap: 25px;
             text-align: left;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .menu-grid, .badge-container {
-                grid-template-columns: 1fr;
+        @media (max-width: 768px) {
+            .board-grid {
+                grid-template-columns: 1fr; /* Stack layout beautifully on mobile phones */
             }
         }
 
+        /* Brown Header Boxes matching the Menu Board */
         .menu-category {
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #333333;
+            border: 2px solid #ffffff;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            background-color: #000000;
+            overflow: hidden;
         }
 
-        .category-title {
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: #ffffff;
+        .category-header {
+            background-color: #4a3424; /* Exact warm brown color from the board */
+            padding: 12px 15px;
+            font-size: 1.6rem;
+            font-weight: bold;
             text-transform: uppercase;
-            border-left: 3px solid #ffffff;
-            padding-left: 10px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #ffffff;
         }
 
+        .category-content {
+            padding: 15px;
+        }
+
+        /* Menu Items List Typography */
         .menu-list {
             list-style: none;
             padding: 0;
@@ -118,54 +91,113 @@
         }
 
         .menu-item {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .item-main {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .item-name {
-            color: #e0e0e0;
-        }
-
-        .item-price {
             font-weight: bold;
-            color: #ffffff;
         }
 
-        .signature-tag {
-            background-color: #ffffff;
-            color: #000000;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-left: 5px;
-            vertical-transform: middle;
-        }
-
-        /* Call To Action Button */
-        .cta-button {
-            display: inline-block;
-            background-color: #ffffff;
-            color: #0d0d0d;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 30px;
-            margin: 30px 0;
-            transition: transform 0.2s, background-color 0.2s;
+        .item-subtext {
+            font-size: 0.85rem;
+            color: #b3b3b3;
+            margin-top: 2px;
+            padding-left: 18px;
             text-transform: uppercase;
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
-            background-color: #e6e6e6;
+        .heart-icon {
+            color: #ffffff;
+            margin-right: 6px;
+        }
+
+        /* Column Pricing Layout (SOLO / B1T1) */
+        .price-header {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #444;
+            padding-bottom: 5px;
+        }
+
+        .price-col {
+            width: 50px;
+            text-align: right;
+            margin-left: 15px;
+        }
+
+        .price-values {
+            display: flex;
+        }
+
+        /* Special Bottom Row Boxes matching the website additions */
+        .bottom-box {
+            border: 2px solid #ffffff;
+            padding: 20px;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .combo-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .combo-details {
+            font-size: 1.3rem;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        .advance-box {
+            border: 2px solid #ffffff;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .advance-header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .advance-body {
+            padding: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        /* Call To Action Pulse Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 30px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
         }
 
         footer {
-            margin-top: 5px;
+            margin-top: 40px;
             padding: 20px 0;
             font-size: 0.85rem;
             color: #666666;
@@ -177,122 +209,257 @@
 
     <div class="container">
         
-        <!-- Header Section -->
+        <!-- Main Shop Header -->
         <header>
-            <h1>Sips and Snack Corner</h1>
-            <div class="subtitle">Drinks & Snacks Menu</div>
+            <h1>SIPS AND SNACK</h1>
+            <div class="subtitle">Snack & Drinks Menu</div>
         </header>
 
-        <!-- Promos and Features Section -->
-        <div class="badge-container">
-            <div class="promo-box">
-                <h3>🔁 MIX & MATCH COMBO!</h3>
-                <p>Any Drink + Any Snack = Less 10 Pesos</p>
-            </div>
-            <div class="promo-box">
-                <h3>✍️ WHAT'S ON YOUR MIND?</h3>
-                <p>Visit our interaction wall inside the shop and leave a note!</p>
-            </div>
-        </div>
+        <!-- Dynamic Order Link to Messenger -->
+        <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 TAP HERE TO ORDER AHEAD</a>
 
-        <!-- ORDER BUTTON (Link to Facebook Messenger) -->
-        <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 Order Ahead & Pick Up</a>
-
-        <!-- DRINKS SECTION -->
-        <div class="menu-section">
-            <div class="section-title">🍹 Drinks Series</div>
-            <div class="menu-grid">
+        <!-- Main Layout Split Grid (Same as the layout of image_96b746.png) -->
+        <div class="board-grid">
+            
+            <!-- LEFT COLUMN: BURGERS, EGG BUNS, HOTDOGS -->
+            <div class="left-column">
                 
+                <!-- BURGERS CATEGORY -->
                 <div class="menu-category">
-                    <div class="category-title">Iced Coffee</div>
-                    <ul class="menu-list">
-                        <li class="menu-item"><span class="item-name">♥ Americano</span><span class="item-price">₱69 / ₱79</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Caramel Macchiato</span><span class="item-price">₱69 / ₱79</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Spanish Latte</span><span class="item-price">₱69 / ₱79</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Salted Caramel</span><span class="item-price">₱69 / ₱79</span></li>
-                    </ul>
+                    <div class="category-header">
+                        <span>BURGERS</span> <span>🍔</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">SOLO</span>
+                            <span class="price-col">B1T1</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CLASSIC BURGER</span>
+                                    <div class="price-values"><span class="price-col">30</span><span class="price-col">55</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CHEESE BURGER</span>
+                                    <div class="price-values"><span class="price-col">45</span><span class="price-col">85</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>EGG BURGER</span>
+                                    <div class="price-values"><span class="price-col">45</span><span class="price-col">85</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CHEESE & EGG BURGER</span>
+                                    <div class="price-values"><span class="price-col">55</span><span class="price-col">100</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
+                <!-- EGG BUNS CATEGORY -->
                 <div class="menu-category">
-                    <div class="category-title">Signature Drink</div>
-                    <ul class="menu-list">
-                        <li class="menu-item">
-                            <span class="item-name">♥ Oreo Fudge <span class="signature-tag">SIGNATURE</span></span>
-                            <span class="item-price">₱69 / ₱79</span>
-                        </li>
-                    </ul>
+                    <div class="category-header">
+                        <span>EGG BUNS</span> <span>🍳</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">SOLO</span>
+                            <span class="price-col">B1T1</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CLASSIC EGG BUN</span>
+                                    <div class="price-values"><span class="price-col">25</span><span class="price-col">45</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CHEESY EGG BUN</span>
+                                    <div class="price-values"><span class="price-col">35</span><span class="price-col">65</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
+                <!-- HOTDOG SANDWICH CATEGORY -->
                 <div class="menu-category">
-                    <div class="category-title">Fruit Refreshers</div>
-                    <ul class="menu-list">
-                        <li class="menu-item"><span class="item-name">♥ Blue Lemonade</span><span class="item-price">₱29 / ₱39</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Green Apple</span><span class="item-price">₱29 / ₱39</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Lychee</span><span class="item-price">₱29 / ₱39</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Four Season</span><span class="item-price">₱29 / ₱39</span></li>
-                    </ul>
+                    <div class="category-header">
+                        <span>HOTDOG SANDWICH</span> <span>🌭</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">SOLO</span>
+                            <span class="price-col">B1T1</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CLASSIC HOTDOG</span>
+                                    <div class="price-values"><span class="price-col">35</span><span class="price-col">65</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CHEESY HOTDOG</span>
+                                    <div class="price-values"><span class="price-col">50</span><span class="price-col">95</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CLASSIC HUNGARIAN</span>
+                                    <div class="price-values"><span class="price-col">55</span><span class="price-col">100</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CHEESY HUNGARIAN</span>
+                                    <div class="price-values"><span class="price-col">70</span><span class="price-col">130</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="menu-category">
-                    <div class="category-title">Fruity Milk</div>
-                    <ul class="menu-list">
-                        <li class="menu-item"><span class="item-name">♥ Strawberry Milk</span><span class="item-price">₱59 / ₱69</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Blueberry Milk</span><span class="item-price">₱59 / ₱69</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Mango Milk</span><span class="item-price">₱59 / ₱69</span></li>
-                    </ul>
+                <!-- MIX & MATCH COMBO BOX -->
+                <div class="bottom-box">
+                    <div class="combo-title">MIX & MATCH COMBO!</div>
+                    <div class="combo-details">
+                        ANY DRINK<br>+<br>ANY SNACK<br>=<br>LESS 10 PESOS
+                    </div>
                 </div>
 
-            </div>
-        </div>
+            </div> <!-- END OF LEFT COLUMN -->
 
-        <!-- SNACKS SECTION -->
-        <div class="menu-section">
-            <div class="section-title">🍔 Snack Series</div>
-            <div class="menu-grid">
+
+            <!-- RIGHT COLUMN: FRIES, NACHOS, WAFFLES, DRINKS -->
+            <div class="right-column">
                 
+                <!-- FRIES CATEGORY -->
                 <div class="menu-category">
-                    <div class="category-title">Burgers & Buns</div>
-                    <ul class="menu-list">
-                        <li class="menu-item"><span class="item-name">♥ Classic Burger</span><span class="item-price">₱30 (B1T1 ₱55)</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Cheese & Egg Burger</span><span class="item-price">₱55 (B1T1 ₱100)</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Classic Egg Bun</span><span class="item-price">₱25 (B1T1 ₱45)</span></li>
-                    </ul>
+                    <div class="category-header">
+                        <span>FRIES (166g)</span> <span>🍟</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col" style="width:75px;">PRICE</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CLASSIC FRIES</span>
+                                    <div class="price-values"><span class="price-col" style="width:75px;">50 | 35<span style="font-size:0.6rem; display:block; color:#aaa;">HALF FRIES</span></span></div>
+                                </div>
+                                <div class="item-subtext">• CHEESE &nbsp;&nbsp;&nbsp;&nbsp; • BBQ</div>
+                                <div class="item-subtext">• SOURCREAM • CHILI BBQ</div>
+                            </li>
+                            <li class="menu-item" style="margin-top:15px;">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CHEESY FRIES</span>
+                                    <div class="price-values"><span class="price-col">70</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>SHAWARMA FRIES</span>
+                                    <div class="price-values"><span class="price-col">80</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
+                <!-- NACHOS CATEGORY -->
                 <div class="menu-category">
-                    <div class="category-title">Fries & Nachos</div>
-                    <ul class="menu-list">
-                        <li class="menu-item"><span class="item-name">♥ Classic Fries (166g)</span><span class="item-price">₱50 (Half ₱35)</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Cheesy Fries</span><span class="item-price">₱70</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Classic Nachos</span><span class="item-price">₱50</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Overload Nachos</span><span class="item-price">₱100</span></li>
-                    </ul>
+                    <div class="category-header">
+                        <span>NACHOS</span> <span>🇲🇽</span>
+                    </div>
+                    <div class="category-content">
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CLASSIC NACHOS</span>
+                                    <span class="item-price">50</span>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>OVERLOAD</span>
+                                    <span class="item-price">100</span>
+                                </div>
+                                <div class="item-subtext">NACHOS • FRIES • SHREDDED CHEESE</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
+                <!-- WAFFLE CATEGORY WITH DRIPPINGS & TOPPINGS -->
                 <div class="menu-category">
-                    <div class="category-title">Waffles</div>
-                    <ul class="menu-list">
-                        <li class="menu-item"><span class="item-name">♥ Classic Waffle</span><span class="item-price">₱25</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Waffle Drizzle</span><span class="item-price">₱35</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Waffle Cloud</span><span class="item-price">₱50</span></li>
-                    </ul>
+                    <div class="category-header">
+                        <span>WAFFLE</span> <span>🧇</span>
+                    </div>
+                    <div class="category-content">
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CLASSIC WAFFLE</span>
+                                    <span class="item-price">25</span>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>WAFFLE DRIZZLE</span>
+                                    <span class="item-price">35</span>
+                                </div>
+                                <div class="item-subtext">• CHOCOLATE SYRUP &nbsp;&nbsp; • CARAMEL SYRUP</div>
+                            </li>
+                            <li class="menu-item" style="margin-top:10px;">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>WAFFLE CLOUD (OREO FUDGE)</span>
+                                    <span class="item-price">50</span>
+                                </div>
+                                <div class="item-subtext" style="color:#ffffff; font-weight:bold; margin-top:5px;">CHOOSE YOUR DRIZZLE & TOPPING</div>
+                                <div style="display:flex; justify-content:space-between; margin-top:5px;">
+                                    <div class="item-subtext" style="padding-left:18px;"><strong>#1 YOUR DRIZZLE</strong><br>• STRAWBERRY<br>• CHOCOLATE<br>• BLUEBERRY<br>• CARAMEL</div>
+                                    <div class="item-subtext"><strong>#2 YOUR TOPPINGS</strong><br>• CHOCO CHIPS<br>• MARSHMALLOW<br>• CRUSHED OREO</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="menu-category">
-                    <div class="category-title">Hotdog Sandwich</div>
-                    <ul class="menu-list">
-                        <li class="menu-item"><span class="item-name">♥ Classic Hotdog</span><span class="item-price">₱35 (B1T1 ₱65)</span></li>
-                        <li class="menu-item"><span class="item-name">♥ Cheesy Hungarian</span><span class="item-price">₱70 (B1T1 ₱130)</span></li>
-                    </ul>
+                <!-- COPIED BOX: ADVANCE ORDER SIGNAGE FROM BOARD -->
+                <div class="advance-box">
+                    <div class="advance-header">SKIP THE LINE! ADVANCE ORDER & PICK UP</div>
+                    <div class="advance-body">
+                        MESSAGE US VIA FACEBOOK/MESSENGER:<br>
+                        <span style="font-size:1.1rem; color:#fff;">SIPS AND SNACK - MANGGAHAN</span><br>
+                        OR TEXT/CALL: <span style="color:#fff;">09956376929</span>
+                    </div>
                 </div>
 
-            </div>
+            </div> <!-- END OF RIGHT COLUMN -->
+
+        </div> <!-- END OF BOARD GRID -->
+
+        <!-- Interaction Footer Extension for the Website -->
+        <div class="bottom-box" style="margin-top:25px; border-style: dotted;">
+            <div class="combo-title" style="font-size:1.3rem; margin:0;">✍️ WHAT'S ON YOUR MIND?</div>
+            <div class="item-subtext" style="text-align:center; padding:0; margin-top:5px; color:#aaa;">Visit our interaction freedom wall corner inside the shop to post your thoughts!</div>
         </div>
 
-        <!-- Footer Section -->
+        <!-- Footer Contact Info -->
         <footer>
-            <p>📍 Manggahan, Pasig City | 📞 Contact: 09956376929</p>
-            <p>&copy; 2026 Sips and Snack Corner. All rights reserved.</p>
+            <p>📍 Manggahan, Pasig City | Owner/Operator: Mycha</p>
+            <p>&copy; 2026 Sips and Snack Co. All rights reserved.</p>
         </footer>
 
     </div>
