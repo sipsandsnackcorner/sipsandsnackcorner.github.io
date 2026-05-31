@@ -16,7 +16,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
             padding: 20px;
         }
@@ -43,17 +43,18 @@
             margin-bottom: 30px;
         }
 
-        /* 2-Column Board Grid Layout matching image_96b746.png */
+        /* Menu Board Layout Grid */
         .board-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             text-align: left;
+            margin-bottom: 30px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .board-grid {
-                grid-template-columns: 1fr; /* Stack layout beautifully on mobile phones */
+                grid-template-columns: 1fr; /* Stacks perfectly on mobile phones */
             }
         }
 
@@ -61,7 +62,7 @@
         .menu-category {
             border: 2px solid #ffffff;
             border-radius: 4px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             background-color: #000000;
             overflow: hidden;
         }
@@ -69,7 +70,7 @@
         .category-header {
             background-color: #4a3424; /* Exact warm brown color from the board */
             padding: 12px 15px;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -114,7 +115,7 @@
             margin-right: 6px;
         }
 
-        /* Column Pricing Layout (SOLO / B1T1) */
+        /* Column Pricing Layout (SOLO / B1T1) or Sizes */
         .price-header {
             display: flex;
             justify-content: flex-end;
@@ -127,7 +128,7 @@
         }
 
         .price-col {
-            width: 50px;
+            width: 55px;
             text-align: right;
             margin-left: 15px;
         }
@@ -136,12 +137,23 @@
             display: flex;
         }
 
-        /* Special Bottom Row Boxes matching the website additions */
+        .signature-tag {
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        /* Special Promotion and Call to Action Styles */
         .bottom-box {
             border: 2px solid #ffffff;
             padding: 20px;
             background-color: #000000;
             text-align: center;
+            margin-bottom: 15px;
         }
 
         .combo-title {
@@ -180,7 +192,6 @@
             line-height: 1.5;
         }
 
-        /* Call To Action Pulse Button */
         .cta-button {
             display: inline-block;
             background-color: #ffffff;
@@ -190,14 +201,24 @@
             font-weight: 900;
             text-decoration: none;
             border-radius: 30px;
-            margin: 30px 0 10px 0;
+            margin: 20px 0 30px 0;
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 0 15px rgba(255,255,255,0.3);
         }
 
+        .section-separator {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 50px 0 30px 0;
+            border-bottom: 4px double #ffffff;
+            padding-bottom: 10px;
+        }
+
         footer {
-            margin-top: 40px;
+            margin-top: 50px;
             padding: 20px 0;
             font-size: 0.85rem;
             color: #666666;
@@ -212,18 +233,197 @@
         <!-- Main Shop Header -->
         <header>
             <h1>SIPS AND SNACK</h1>
-            <div class="subtitle">Snack & Drinks Menu</div>
+            <div class="subtitle">Official Online Menu</div>
         </header>
 
-        <!-- Dynamic Order Link to Messenger -->
-        <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 TAP HERE TO ORDER AHEAD</a>
+        <!-- Messenger Order Link -->
+        <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 CLICK HERE TO ORDER AHEAD</a>
 
-        <!-- Main Layout Split Grid (Same as the layout of image_96b746.png) -->
+        <!-- ==================== BOARD 1: DRINKS MENU ==================== -->
+        <div class="section-separator">🍹 DRINKS SERIES</div>
+        
+        <div class="board-grid">
+            
+            <!-- LEFT COLUMN: ICED COFFEE & SIGNATURE -->
+            <div>
+                <!-- ICED COFFEE CATEGORY -->
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span>ICED COFFEE</span> <span>☕</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">16oz</span>
+                            <span class="price-col">22oz</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>AMERICANO</span>
+                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>CARAMEL MACCHIATO</span>
+                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>SPANISH LATTE</span>
+                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>SALTED CARAMEL</span>
+                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SIGNATURE DRINK CATEGORY -->
+                <div class="menu-category">
+                    <div class="category-header" style="background-color: #222;">
+                        <span>SIGNATURE DRINK</span> <span>🌟</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">16oz</span>
+                            <span class="price-col">22oz</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>OREO FUDGE <span class="signature-tag">BEST</span></span>
+                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FRUITY MILK CATEGORY -->
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span>FRUITY MILK</span> <span>🍓</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">16oz</span>
+                            <span class="price-col">22oz</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>STRAWBERRY MILK</span>
+                                    <div class="price-values"><span class="price-col">59</span><span class="price-col">69</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>BLUEBERRY MILK</span>
+                                    <div class="price-values"><span class="price-col">59</span><span class="price-col">69</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>MANGO MILK</span>
+                                    <div class="price-values"><span class="price-col">59</span><span class="price-col">69</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: FRUIT REFRESHERS & MILKTEA CLASSIC -->
+            <div>
+                <!-- FRUIT REFRESHERS CATEGORY -->
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span>FRUIT REFRESHERS</span> <span>🍋</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">16oz</span>
+                            <span class="price-col">22oz</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>BLUE LEMONADE</span>
+                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>GREEN APPLE</span>
+                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>LYCHEE</span>
+                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>FOUR SEASON</span>
+                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- MILKTEA CLASSIC CATEGORY -->
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span>MILKTEA CLASSIC</span> <span>🧋</span>
+                    </div>
+                    <div class="category-content">
+                        <div class="price-header">
+                            <span class="price-col">16oz</span>
+                            <span class="price-col">22oz</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>WINTERMELON</span>
+                                    <div class="price-values"><span class="price-col">49</span><span class="price-col">69</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>OKINAWA</span>
+                                    <div class="price-values"><span class="price-col">49</span><span class="price-col">69</span></div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+                                <div class="item-main">
+                                    <span><span class="heart-icon">♥</span>DARK CHOCOLATE</span>
+                                    <div class="price-values"><span class="price-col">49</span><span class="price-col">69</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ==================== BOARD 2: SNACK MENU ==================== -->
+        <div class="section-separator">🍔 SNACK SERIES</div>
+
         <div class="board-grid">
             
             <!-- LEFT COLUMN: BURGERS, EGG BUNS, HOTDOGS -->
-            <div class="left-column">
-                
+            <div>
                 <!-- BURGERS CATEGORY -->
                 <div class="menu-category">
                     <div class="category-header">
@@ -333,16 +533,13 @@
                 <div class="bottom-box">
                     <div class="combo-title">MIX & MATCH COMBO!</div>
                     <div class="combo-details">
-                        ANY DRINK<br>+<br>ANY SNACK<br>=<br>LESS 10 PESOS
+                        ANY DRINK + ANY SNACK = LESS 10 PESOS
                     </div>
                 </div>
+            </div>
 
-            </div> <!-- END OF LEFT COLUMN -->
-
-
-            <!-- RIGHT COLUMN: FRIES, NACHOS, WAFFLES, DRINKS -->
-            <div class="right-column">
-                
+            <!-- RIGHT COLUMN: FRIES, NACHOS, WAFFLES -->
+            <div>
                 <!-- FRIES CATEGORY -->
                 <div class="menu-category">
                     <div class="category-header">
@@ -401,7 +598,7 @@
                     </div>
                 </div>
 
-                <!-- WAFFLE CATEGORY WITH DRIPPINGS & TOPPINGS -->
+                <!-- WAFFLE CATEGORY -->
                 <div class="menu-category">
                     <div class="category-header">
                         <span>WAFFLE</span> <span>🧇</span>
@@ -423,7 +620,7 @@
                             </li>
                             <li class="menu-item" style="margin-top:10px;">
                                 <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>WAFFLE CLOUD (OREO FUDGE)</span>
+                                    <span><span class="heart-icon">♥</span>WAFFLE CLOUD</span>
                                     <span class="item-price">50</span>
                                 </div>
                                 <div class="item-subtext" style="color:#ffffff; font-weight:bold; margin-top:5px;">CHOOSE YOUR DRIZZLE & TOPPING</div>
@@ -436,7 +633,7 @@
                     </div>
                 </div>
 
-                <!-- COPIED BOX: ADVANCE ORDER SIGNAGE FROM BOARD -->
+                <!-- ADVANCE ORDER SIGNAGE FROM BOARD -->
                 <div class="advance-box">
                     <div class="advance-header">SKIP THE LINE! ADVANCE ORDER & PICK UP</div>
                     <div class="advance-body">
@@ -445,20 +642,19 @@
                         OR TEXT/CALL: <span style="color:#fff;">09956376929</span>
                     </div>
                 </div>
-
-            </div> <!-- END OF RIGHT COLUMN -->
+            </div>
 
         </div> <!-- END OF BOARD GRID -->
 
-        <!-- Interaction Footer Extension for the Website -->
-        <div class="bottom-box" style="margin-top:25px; border-style: dotted;">
-            <div class="combo-title" style="font-size:1.3rem; margin:0;">✍️ WHAT'S ON YOUR MIND?</div>
+        <!-- Interaction Wall Extension -->
+        <div class="bottom-box" style="border-style: dotted;">
+            <div class="combo-title" style="font-size:1.4rem; margin:0;">✍️ WHAT'S ON YOUR MIND?</div>
             <div class="item-subtext" style="text-align:center; padding:0; margin-top:5px; color:#aaa;">Visit our interaction freedom wall corner inside the shop to post your thoughts!</div>
         </div>
 
         <!-- Footer Contact Info -->
         <footer>
-            <p>📍 Manggahan, Pasig City | Owner/Operator: Mycha</p>
+            <p>📍 Manggahan, Pasig City | Owner & Operator: Mycha</p>
             <p>&copy; 2026 Sips and Snack Co. All rights reserved.</p>
         </footer>
 
