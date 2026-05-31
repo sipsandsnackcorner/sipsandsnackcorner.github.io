@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sips and Snack Corner</title>
-    <!-- Ginamit ang Poppins para sa malinis, premium, at modernong aesthetic -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #000000;
             color: #ffffff;
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            /* Ginawa nating primary font ang Segoe UI para sa malinis at professional look */
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             letter-spacing: 0.5px;
@@ -42,24 +41,18 @@
             margin-top: 8px;
             font-weight: 400;
         }
-        .drinks-grid {
+        /* Inayos ang grid layout base sa image_899482.png para maging pantay ang columns */
+        .main-menu-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             text-align: left;
         }
-        .snacks-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            text-align: left;
-            margin-top: 20px;
-        }
         @media (max-width: 1024px) {
-            .drinks-grid { grid-template-columns: 1fr 1fr; }
+            .main-menu-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 650px) {
-            .drinks-grid, .snacks-grid { grid-template-columns: 1fr; }
+            .main-menu-grid { grid-template-columns: 1fr; }
             h1 { font-size: 2rem; }
             .subtitle { font-size: 0.9rem; }
         }
@@ -71,7 +64,7 @@
             flex-direction: column;
         }
         .category-header {
-            background-color: #3d2516; /* Dark Matte Brown base */
+            background-color: #3d2516; 
             padding: 12px;
             font-size: 1.1rem;
             font-weight: 800;
@@ -79,6 +72,18 @@
             text-align: center;
             border-bottom: 2px solid #ffffff;
             letter-spacing: 2px;
+        }
+        .section-header-inline {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 15px 0;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         .category-content {
             padding: 15px;
@@ -163,11 +168,13 @@
             background-color: #000000;
             text-align: center;
             text-transform: uppercase;
+            margin-bottom: 20px;
         }
         .advance-box {
             border: 2px solid #ffffff;
             background-color: #000000;
             text-align: center;
+            margin-bottom: 20px;
         }
         .advance-header {
             background-color: #ffffff;
@@ -189,15 +196,6 @@
             margin: 15px 0 25px 0;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 40px 0 20px 0;
-            text-transform: uppercase;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 8px;
-            letter-spacing: 2px;
         }
         .heart-divider {
             text-align: center;
@@ -224,10 +222,10 @@
 
         <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 CLICK HERE TO ORDER VIA MESSENGER</a>
 
-        <div class="section-title">🍹 DRINKS MENU</div>
-        <div class="drinks-grid">
-            
-            <!-- COLUMN 1 -->
+        <div class="section-header-inline">🍹 DRINKS MENU</div>
+        
+        <div class="main-menu-grid">
+            <!-- COLUMN 1: DRINKS -->
             <div>
                 <div class="menu-category">
                     <div class="category-header">ICED COFFEE</div>
@@ -289,7 +287,7 @@
                 </div>
             </div>
 
-            <!-- COLUMN 2 -->
+            <!-- COLUMN 2: DRINKS -->
             <div>
                 <div class="menu-category">
                     <div class="category-header">NON-COFFEE ICED LATTE</div>
@@ -310,7 +308,7 @@
                     </div>
                 </div>
 
-                <div class="menu-category" style="margin-top:25px;">
+                <div class="menu-category">
                     <div class="category-header">MILKTEA</div>
                     <div class="category-content">
                         <ul class="menu-list">
@@ -328,9 +326,7 @@
                             <div class="price-row-numbers" style="gap:15px;"><span class="price-col">69</span><span class="price-col">49</span><span class="price-col">39</span></div>
                             <div class="price-row-labels" style="gap:15px;"><span class="label-col">1 LITER</span><span class="label-col">22 OZ</span><span class="label-col">16 OZ</span></div>
                         </div>
-                    </div>
-                </div>
-                <div>
+                        <div>
                 <div class="menu-category">
                     <div class="category-header">SIGNATURE FRAPPE</div>
                     <div class="category-content">
@@ -388,9 +384,63 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- SNACK SECTION INLINE START -->
+                <div class="section-header-inline" style="margin-top:35px;">🍔 SNACK MENU</div>
+
+                <div class="menu-category">
+                    <div class="category-header">BURGERS</div>
+                    <div class="category-content">
+                        <div style="display:flex; justify-content:flex-end; font-size:0.9rem; font-weight:700; border-bottom:2px dashed #444444; margin-bottom:8px; color:#ffffff;">
+                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
+                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC BURGER</span><div><span>30</span><span style="margin-left:35px;">55</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESE BURGER</span><div><span>45</span><span style="margin-left:35px;">85</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>EGG BURGER</span><div><span>45</span><span style="margin-left:35px;">85</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESE & EGG BURGER</span><div><span>55</span><span style="margin-left:30px;">100</span></div></div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-header">EGG BUNS</div>
+                    <div class="category-content">
+                        <div style="display:flex; justify-content:flex-end; font-size:0.9rem; font-weight:700; border-bottom:2px dashed #444444; margin-bottom:8px; color:#ffffff;">
+                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
+                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC EGG BUN</span><div><span>25</span><span style="margin-left:35px;">45</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY EGG BUN</span><div><span>35</span><span style="margin-left:35px;">65</span></div></div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-header">HOTDOG SANDWICH</div>
+                    <div class="category-content">
+                        <div style="display:flex; justify-content:flex-end; font-size:0.9rem; font-weight:700; border-bottom:2px dashed #444444; margin-bottom:8px; color:#ffffff;">
+                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
+                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC HOTDOG</span><div><span>35</span><span style="margin-left:35px;">65</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY HOTDOG</span><div><span>50</span><span style="margin-left:35px;">95</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC HUNGARIAN</span><div><span>55</span><span style="margin-left:30px;">100</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY HUNGARIAN</span><div><span>70</span><span style="margin-left:25px;">130</span></div></div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bottom-box">
+                    <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 5px; letter-spacing: 1px;">MIX & MATCH COMBO!</div>
+                    <div style="font-size: 0.95rem; color: #b3b3b3; font-weight: 600;">ANY DRINK + ANY SNACK = LESS 10 PESOS</div>
+                </div>
             </div>
 
-            <!-- COLUMN 4 -->
+            <!-- COLUMN 4: REFRESHERS, ADD-ONS, AT DUGTONG NG SNACKS -->
             <div>
                 <div class="menu-category">
                     <div class="category-header">FRUITY MILK</div>
@@ -449,68 +499,9 @@
                         <div class="add-ons-line"><span><span class="heart-icon">♥</span>EXTRA SHOT COFFEE</span> <span>20</span></div>
                     </div>
                 </div>
-            </div>
-        </div> <!-- END DRINKS GRID -->
 
-
-        <!-- ==================== BOARD 2: SNACK MENU ==================== -->
-        <div class="section-title">🍔 SNACK MENU</div>
-        <div class="snacks-grid">
-            <div>
-                <div class="menu-category">
-                    <div class="category-header">BURGERS</div>
-                    <div class="category-content">
-                        <div style="display:flex; justify-content:flex-end; font-size:0.9rem; font-weight:700; border-bottom:2px dashed #444444; margin-bottom:8px; color:#ffffff;">
-                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
-                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
-                        </div>
-                        <ul class="menu-list">
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC BURGER</span><div><span>30</span><span style="margin-left:35px;">55</span></div></div></li>
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESE BURGER</span><div><span>45</span><span style="margin-left:35px;">85</span></div></div></li>
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>EGG BURGER</span><div><span>45</span><span style="margin-left:35px;">85</span></div></div></li>
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESE & EGG BURGER</span><div><span>55</span><span style="margin-left:30px;">100</span></div></div></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="menu-category">
-                    <div class="category-header">EGG BUNS</div>
-                    <div class="category-content">
-                        <div style="display:flex; justify-content:flex-end; font-size:0.9rem; font-weight:700; border-bottom:2px dashed #444444; margin-bottom:8px; color:#ffffff;">
-                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
-                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
-                        </div>
-                        <ul class="menu-list">
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC EGG BUN</span><div><span>25</span><span style="margin-left:35px;">45</span></div></div></li>
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY EGG BUN</span><div><span>35</span><span style="margin-left:35px;">65</span></div></div></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="menu-category">
-                    <div class="category-header">HOTDOG SANDWICH</div>
-                    <div class="category-content">
-                        <div style="display:flex; justify-content:flex-end; font-size:0.9rem; font-weight:700; border-bottom:2px dashed #444444; margin-bottom:8px; color:#ffffff;">
-                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
-                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
-                        </div>
-                        <ul class="menu-list">
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC HOTDOG</span><div><span>35</span><span style="margin-left:35px;">65</span></div></div></li>
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY HOTDOG</span><div><span>50</span><span style="margin-left:35px;">95</span></div></div></li>
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC HUNGARIAN</span><div><span>55</span><span style="margin-left:30px;">100</span></div></div></li>
-                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY HUNGARIAN</span><div><span>70</span><span style="margin-left:25px;">130</span></div></div></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bottom-box">
-                    <div style="font-size: 1.4rem; font-weight: 800; margin-bottom: 5px; letter-spacing: 1px;">MIX & MATCH COMBO!</div>
-                    <div style="font-size: 1rem; color: #b3b3b3; font-weight: 600;">ANY DRINK + ANY SNACK = LESS 10 PESOS</div>
-                </div>
-            </div>
-
-            <div>
-                <div class="menu-category">
+                <!-- SNACKS CONT. -->
+                <div class="menu-category" style="margin-top:88px;">
                     <div class="category-header">FRIES (166g)</div>
                     <div class="category-content">
                         <ul class="menu-list">
@@ -575,7 +566,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- END MAIN MENU GRID -->
 
         <div class="bottom-box" style="margin-top:30px; border-style: dotted;">
             <div style="font-size:1.2rem; font-weight:700; margin:0;">✍️ WHAT'S ON YOUR MIND?</div>
@@ -589,3 +580,6 @@
     </div>
 </body>
 </html>
+                    </div>
+                </div>
+            </div>
