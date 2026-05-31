@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,39 +6,286 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sips and Snack by Mycha</title>
     <style>
+        /* Base Styles aligned with Minimalist Brand Aesthetic */
         body {
-            background-color: #121212; /* Matte Black background */
-            color: #ffffff; /* White text */
+            background-color: #0d0d0d; /* Matte Black background */
+            color: #ffffff; /* High-contrast white text */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
+
+        header {
+            margin-top: 30px;
+            margin-bottom: 40px;
         }
+
         h1 {
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 10px;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin: 5px 0;
+            text-transform: uppercase;
         }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #b3b3b3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* Feature Badges Grid */
+        .badge-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
         .promo-box {
             border: 2px dashed #ffffff;
             padding: 15px;
-            margin: 20px 0;
+            border-radius: 8px;
+            background-color: #141414;
+        }
+
+        .promo-box h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .promo-box p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+
+        /* Menu Grid Layout */
+        .menu-section {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .menu-grid, .badge-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .menu-category {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333333;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-transform: uppercase;
+            border-left: 3px solid #ffffff;
+            padding-left: 10px;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .item-name {
+            color: #e0e0e0;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /* Call To Action Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #0d0d0d;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 30px 0;
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #e6e6e6;
+        }
+
+        footer {
+            margin-top: 5px;
+            padding: 20px 0;
+            font-size: 0.85rem;
+            color: #666666;
+            border-top: 1px solid #222222;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>SIPS AND SNACK BY MYCHA</h1>
-        <p>Your favorite student tambayan for premium iced coffee, milk tea, and snacks!</p>
         
-        <div class="promo-box">
-            <h3>🔁 MIX & MATCH COMBO!</h3>
-            <p>Any Drink + Any Snack = Less 10 Pesos</p>
+        <!-- Header Section -->
+        <header>
+            <h1>Sips and Snack by Mycha</h1>
+            <div class="subtitle">Drinks & Snacks Menu</div>
+        </header>
+
+        <!-- Promos and Pick up Section -->
+        <div class="badge-container">
+            <div class="promo-box">
+                <h3>🔁 MIX & MATCH COMBO!</h3>
+                <p>Any Drink + Any Snack = Less 10 Pesos</p>
+            </div>
+            <div class="promo-box">
+                <h3>⚡ ADVANCE ORDER</h3>
+                <p>Skip the line! Order ahead and pick up at counter</p>
+            </div>
         </div>
 
-        <p>📱 Skip the line! Message us for Advance Order & Pick Up.</p>
+        <!-- ORDER BUTTON (Link to Facebook Messenger) -->
+        <!-- Papalitan na lang ng saktong FB page path kapag ready na -->
+        <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 Order via Messenger</a>
+
+        <!-- DRINKS SECTION -->
+        <div class="menu-section">
+            <div class="section-title">🍹 Drinks Series</div>
+            <div class="menu-grid">
+                
+                <div class="menu-category">
+                    <div class="category-title">Iced Coffee</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Americano</span><span class="item-price">₱69 / ₱79</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Caramel Macchiato</span><span class="item-price">₱69 / ₱79</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Spanish Latte</span><span class="item-price">₱69 / ₱79</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Salted Caramel</span><span class="item-price">₱69 / ₱79</span></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-title">Fruit Refreshers</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Blue Lemonade</span><span class="item-price">₱29 / ₱39</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Green Apple</span><span class="item-price">₱29 / ₱39</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Lychee</span><span class="item-price">₱29 / ₱39</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Four Season</span><span class="item-price">₱29 / ₱39</span></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-title">Fruity Milk</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Strawberry Milk</span><span class="item-price">₱59 / ₱69</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Blueberry Milk</span><span class="item-price">₱59 / ₱69</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Mango Milk</span><span class="item-price">₱59 / ₱69</span></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-title">Milktea Classic</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Wintermelon</span><span class="item-price">₱49 / ₱69</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Okinawa</span><span class="item-price">₱49 / ₱69</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Dark Chocolate</span><span class="item-price">₱49 / ₱69</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SNACKS SECTION -->
+        <div class="menu-section">
+            <div class="section-title">🍔 Snack Series</div>
+            <div class="menu-grid">
+                
+                <div class="menu-category">
+                    <div class="category-title">Burgers & Buns</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Classic Burger</span><span class="item-price">₱30 (B1T1 ₱55)</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Cheese & Egg Burger</span><span class="item-price">₱55 (B1T1 ₱100)</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Classic Egg Bun</span><span class="item-price">₱25 (B1T1 ₱45)</span></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-title">Fries & Nachos</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Classic Fries</span><span class="item-price">₱50 (Half ₱35)</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Cheesy Fries</span><span class="item-price">₱70</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Classic Nachos</span><span class="item-price">₱50</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Overload Nachos</span><span class="item-price">₱100</span></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-title">Waffles</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Classic Waffle</span><span class="item-price">₱25</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Waffle Drizzle</span><span class="item-price">₱35</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Waffle Cloud</span><span class="item-price">₱50</span></li>
+                    </ul>
+                </div>
+
+                <div class="menu-category">
+                    <div class="category-title">Hotdog Sandwich</div>
+                    <ul class="menu-list">
+                        <li class="menu-item"><span class="item-name">♥ Classic Hotdog</span><span class="item-price">₱35 (B1T1 ₱65)</span></li>
+                        <li class="menu-item"><span class="item-name">♥ Cheesy Hungarian</span><span class="item-price">₱70 (B1T1 ₱130)</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>📍 Manggahan, Pasig City | 📞 Contact: 09956376929</p>
+            <p>&copy; 2026 Sips and Snack by Mycha. All rights reserved.</p>
+        </footer>
+
     </div>
+
 </body>
 </html>
