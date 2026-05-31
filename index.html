@@ -5,86 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sips and Snack Corner</title>
     <style>
-        /* Exact Match to the Matte Black & White Minimalist Signage Theme */
+        /* Matte Black & White Minimalist Signage Theme based on 30 (9).jpg */
         body {
-            background-color: #000000; /* Deep Matte Black */
-            color: #ffffff; /* High-contrast white text */
-            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Impact', 'Arial Black', 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            letter-spacing: 1px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
             padding: 20px;
+            text-align: center;
         }
 
         header {
             margin-top: 20px;
             margin-bottom: 30px;
+            border-bottom: 3px solid #ffffff;
+            padding-bottom: 20px;
         }
 
         h1 {
-            font-size: 2.8rem;
-            letter-spacing: 3px;
+            font-size: 3.5rem;
+            letter-spacing: 4px;
             margin: 0;
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
         }
 
         .subtitle {
-            font-size: 1.3rem;
-            letter-spacing: 2px;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
             color: #ffffff;
             text-transform: uppercase;
             margin-top: 5px;
-            margin-bottom: 30px;
         }
 
-        /* Menu Board Layout Grid */
-        .board-grid {
+        /* Responsive 4-Column Grid for Drinks and 2-Column for Snacks */
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            text-align: left;
+        }
+
+        .snacks-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 20px;
             text-align: left;
-            margin-bottom: 30px;
+            margin-top: 20px;
         }
 
-        @media (max-width: 850px) {
-            .board-grid {
-                grid-template-columns: 1fr; /* Stacks perfectly on mobile phones */
+        @media (max-width: 1024px) {
+            .drinks-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        /* Brown Header Boxes matching the Menu Board */
+        @media (max-width: 650px) {
+            .drinks-grid, .snacks-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.3rem; }
+        }
+
+        /* Brown Header Boxes matching the Menu Boards */
         .menu-category {
             border: 2px solid #ffffff;
-            border-radius: 4px;
-            margin-bottom: 15px;
             background-color: #000000;
-            overflow: hidden;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         .category-header {
-            background-color: #4a3424; /* Exact warm brown color from the board */
-            padding: 12px 15px;
-            font-size: 1.5rem;
+            background-color: #3d2516; /* Warm Dark Brown from the boards */
+            padding: 10px;
+            font-size: 1.4rem;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            text-align: center;
             border-bottom: 2px solid #ffffff;
+            letter-spacing: 2px;
         }
 
         .category-content {
-            padding: 15px;
+            padding: 12px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
         }
 
-        /* Menu Items List Typography */
+        .sub-type-header {
+            text-align: center;
+            font-family: 'Impact', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin: 8px 0;
+            color: #ffffff;
+        }
+
+        /* Menu Items List Layout */
         .menu-list {
             list-style: none;
             padding: 0;
@@ -92,104 +119,91 @@
         }
 
         .menu-item {
-            margin-bottom: 12px;
-            font-size: 1rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
         .item-main {
             display: flex;
             justify-content: space-between;
-            font-weight: bold;
-        }
-
-        .item-subtext {
-            font-size: 0.85rem;
-            color: #b3b3b3;
-            margin-top: 2px;
-            padding-left: 18px;
-            text-transform: uppercase;
+            align-items: baseline;
         }
 
         .heart-icon {
             color: #ffffff;
-            margin-right: 6px;
-        }
-
-        /* Column Pricing Layout (SOLO / B1T1) or Sizes */
-        .price-header {
-            display: flex;
-            justify-content: flex-end;
+            margin-right: 5px;
             font-size: 0.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            border-bottom: 1px dashed #444;
-            padding-bottom: 5px;
         }
 
-        .price-col {
-            width: 55px;
-            text-align: right;
-            margin-left: 15px;
+        .item-subtext {
+            font-size: 0.8rem;
+            color: #b3b3b3;
+            margin-top: 2px;
+            padding-left: 15px;
         }
 
-        .price-values {
+        /* Multi-pricing Display matching the layout of 30 (9).jpg */
+        .price-display-block {
+            text-align: center;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #444;
+            font-family: 'Impact', sans-serif;
+        }
+
+        .price-row-numbers {
             display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 1.8rem;
+            line-height: 1;
         }
 
-        .signature-tag {
-            background-color: #ffffff;
-            color: #000000;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-left: 8px;
+        .price-row-labels {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 0.8rem;
+            color: #b3b3b3;
+            font-family: 'Arial', sans-serif;
+            margin-top: 2px;
         }
 
-        /* Special Promotion and Call to Action Styles */
+        .label-col, .price-col {
+            width: 50px;
+            text-align: center;
+        }
+
+        /* Specific styles for special layouts */
+        .add-ons-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-family: 'Arial', sans-serif;
+        }
+
         .bottom-box {
             border: 2px solid #ffffff;
             padding: 20px;
             background-color: #000000;
             text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .combo-title {
-            font-size: 1.8rem;
-            font-weight: 900;
+            font-family: 'Impact', sans-serif;
             letter-spacing: 1px;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .combo-details {
-            font-size: 1.3rem;
-            font-weight: bold;
-            line-height: 1.6;
         }
 
         .advance-box {
             border: 2px solid #ffffff;
             background-color: #000000;
             text-align: center;
+            font-family: 'Arial', sans-serif;
         }
 
         .advance-header {
             background-color: #ffffff;
             color: #000000;
-            padding: 10px;
+            padding: 8px;
+            font-family: 'Impact', sans-serif;
             font-size: 1.2rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .advance-body {
-            padding: 15px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            line-height: 1.5;
         }
 
         .cta-button {
@@ -197,30 +211,32 @@
             background-color: #ffffff;
             color: #000000;
             padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: 900;
+            font-size: 1.2rem;
             text-decoration: none;
-            border-radius: 30px;
-            margin: 20px 0 30px 0;
+            margin: 20px 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
 
-        .section-separator {
-            font-size: 2.2rem;
-            font-weight: bold;
-            letter-spacing: 4px;
+        .section-title {
+            font-size: 2.5rem;
+            margin: 30px 0 15px 0;
             text-transform: uppercase;
-            margin: 50px 0 30px 0;
-            border-bottom: 4px double #ffffff;
-            padding-bottom: 10px;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+        }
+
+        .heart-divider {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 10px;
         }
 
         footer {
             margin-top: 50px;
             padding: 20px 0;
             font-size: 0.85rem;
+            font-family: 'Arial', sans-serif;
             color: #666666;
             border-top: 1px solid #222222;
         }
@@ -230,429 +246,484 @@
 
     <div class="container">
         
-        <!-- Main Shop Header -->
         <header>
             <h1>SIPS AND SNACK CORNER</h1>
             <div class="subtitle">Official Online Menu</div>
         </header>
 
-        <!-- Messenger Order Link -->
-        <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 CLICK HERE TO ORDER AHEAD</a>
+        <a href="https://m.me/sipsandsnackcorner" target="_blank" class="cta-button">📱 CLICK HERE TO ORDER VIA MESSENGER</a>
 
-        <!-- ==================== BOARD 1: DRINKS MENU ==================== -->
-        <div class="section-separator">🍹 DRINKS SERIES</div>
+        <!-- ==================== BOARD 1: DRINKS MENU (FROM 30 (9).jpg) ==================== -->
+        <div class="section-title">🍹 DRINKS MENU</div>
         
-        <div class="board-grid">
+        <div class="drinks-grid">
             
-            <!-- LEFT COLUMN: ICED COFFEE & SIGNATURE -->
+            <!-- COLUMN 1: ICED COFFEE & FRAPPE -->
             <div>
-                <!-- ICED COFFEE CATEGORY -->
+                <!-- ICED COFFEE -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>ICED COFFEE</span> <span>☕</span>
-                    </div>
+                    <div class="category-header">ICED COFFEE</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">16oz</span>
-                            <span class="price-col">22oz</span>
-                        </div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>AMERICANO</span>
-                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CARAMEL MACCHIATO</span>
-                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>SPANISH LATTE</span>
-                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>SALTED CARAMEL</span>
-                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>AMERICANO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>SPANISH LATTE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CARAMEL LATTE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>SALTED CARAMEL</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CARAMEL MACCHIATO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>DARK MOCHA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>HAZELNUT</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>DIRTY TARO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CAFE LATTE</li>
                         </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">79</span>
+                                <span class="price-col">69</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                        <ul class="menu-list" style="margin-top:15px;">
+                            <li class="menu-item"><span class="heart-icon">♥</span>DIRTY OREO</li>
+                        </ul>
+                        <div class="price-display-block" style="margin-top:5px; border-top:none; padding-top:0;">
+                            <div class="price-row-numbers">
+                                <span class="price-col">89</span>
+                                <span class="price-col">79</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- SIGNATURE DRINK CATEGORY -->
+                <!-- FRAPPE -->
                 <div class="menu-category">
-                    <div class="category-header" style="background-color: #222;">
-                        <span>SIGNATURE DRINK</span> <span>🌟</span>
-                    </div>
+                    <div class="category-header">FRAPPE</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">16oz</span>
-                            <span class="price-col">22oz</span>
-                        </div>
+                        <div class="sub-type-header">--MILK BASE--</div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>OREO FUDGE <span class="signature-tag">BEST</span></span>
-                                    <div class="price-values"><span class="price-col">69</span><span class="price-col">79</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>DARK CHOCOLATE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CREAMY AVOCADO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>COOKIES & CREAM</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>HAZELNUT</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>STRAWBERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>BLUEBERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>GREEN APPLE</li>
                         </ul>
-                    </div>
-                </div>
-
-                <!-- FRUITY MILK CATEGORY -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <span>FRUITY MILK</span> <span>🍓</span>
-                    </div>
-                    <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">16oz</span>
-                            <span class="price-col">22oz</span>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">69</span>
+                                <span class="price-col">59</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
                         </div>
+                        <div class="sub-type-header" style="margin-top:15px;">--COFFEE BASE--</div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>STRAWBERRY MILK</span>
-                                    <div class="price-values"><span class="price-col">59</span><span class="price-col">69</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>BLUEBERRY MILK</span>
-                                    <div class="price-values"><span class="price-col">59</span><span class="price-col">69</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>MANGO MILK</span>
-                                    <div class="price-values"><span class="price-col">59</span><span class="price-col">69</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>DARK MOCHA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CARAMEL MACCHIATO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>HAZELNUT</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>JAVACHIP</li>
                         </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">79</span>
+                                <span class="price-col">69</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: FRUIT REFRESHERS & MILKTEA CLASSIC -->
+            <!-- COLUMN 2: NON-COFFEE, MILKTEA, SIGNATURE FRAPPE -->
             <div>
-                <!-- FRUIT REFRESHERS CATEGORY -->
+                <!-- NON-COFFEE ICED LATTE -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>FRUIT REFRESHERS</span> <span>🍋</span>
-                    </div>
+                    <div class="category-header">NON-COFFEE ICED LATTE</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">16oz</span>
-                            <span class="price-col">22oz</span>
-                        </div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>BLUE LEMONADE</span>
-                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>GREEN APPLE</span>
-                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>LYCHEE</span>
-                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>FOUR SEASON</span>
-                                    <div class="price-values"><span class="price-col">29</span><span class="price-col">39</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>TARO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CHOCO BERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>DARK CHOCOLATE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>HAZELNUT</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>TARO BERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>TARO OREO</li>
                         </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">69</span>
+                                <span class="price-col">59</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                        <div class="heart-divider">♥</div>
                     </div>
                 </div>
 
-                <!-- MILKTEA CLASSIC CATEGORY -->
-                <div class="menu-category">
-                    <div class="category-header">
-                        <span>MILKTEA CLASSIC</span> <span>🧋</span>
-                    </div>
+                <!-- MILKTEA -->
+                <div class="menu-category" style="margin-top:28px;">
+                    <div class="category-header">MILKTEA</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">16oz</span>
-                            <span class="price-col">22oz</span>
-                        </div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>WINTERMELON</span>
-                                    <div class="price-values"><span class="price-col">49</span><span class="price-col">69</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>OKINAWA</span>
-                                    <div class="price-values"><span class="price-col">49</span><span class="price-col">69</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>DARK CHOCOLATE</span>
-                                    <div class="price-values"><span class="price-col">49</span><span class="price-col">69</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>DARK CHOCOLATE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>HAZELNUT</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>COOKIES & CREAM</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CREAMY AVOCADO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>WINTERMELON</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>OKINAWA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>TARO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>REDVELVET</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>MATCHA</li>
                         </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers" style="gap:15px;">
+                                <span class="price-col">69</span>
+                                <span class="price-col">49</span>
+                                <span class="price-col">39</span>
+                            </div>
+                            <div class="price-row-labels" style="gap:15px;">
+                                <span class="label-col">1 Liter</span>
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIPS AND SNACK SIGNATURE FRAPPE -->
+                <div class="menu-category">
+                    <div class="category-header" style="font-size:1.1rem;">SIPS AND SNACK SIGNATURE FRAPPE</div>
+                    <div class="category-content">
+                        <ul class="menu-list">
+                            <li class="menu-item"><span class="heart-icon">♥</span>CHOCO BERRY CLOUD</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>OREO TARO CLOUD</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>TARO BERRY CLOUD</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>MATCHA BERRY CLOUD</li>
+                        </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">89</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- COLUMN 3: MATCHA SERIES & HOT DRINKS -->
+            <div>
+                <!-- MATCHA SERIES -->
+                <div class="menu-category">
+                    <div class="category-header">MATCHA SERIES</div>
+                    <div class="category-content">
+                        <ul class="menu-list">
+                            <li class="menu-item"><span class="heart-icon">♥</span>CLASSIC MATCHA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>MATCHA BERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CHOCO MATCHA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>OREO MATCHA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>TARO MATCHA</li>
+                        </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">79</span>
+                                <span class="price-col">69</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                        <ul class="menu-list" style="margin-top:20px;">
+                            <li class="menu-item"><span class="heart-icon">♥</span>DIRTY MATCHA</li>
+                        </ul>
+                        <div class="price-display-block" style="margin-top:5px; border-top:none; padding-top:0;">
+                            <div class="price-row-numbers">
+                                <span class="price-col">89</span>
+                                <span class="price-col">79</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOT DRINKS -->
+                <div class="menu-category" style="margin-top:35px;">
+                    <div class="category-header">HOT DRINKS</div>
+                    <div class="category-content">
+                        <ul class="menu-list">
+                            <li class="menu-item"><span class="heart-icon">♥</span>AMERICANO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CARAMEL MACCHIATO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>DARK MOCHA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>HAZELNUT</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>CAFE LATE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>SPANISH LATTE</li>
+                        </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">59</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">12oz</span>
+                            </div>
+                        </div>
+                        <div class="heart-divider">♥</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 4: FRUITY MILK, REFRESHERS, ADD-ONS -->
+            <div>
+                <!-- FRUITY MILK -->
+                <div class="menu-category">
+                    <div class="category-header">FRUITY MILK</div>
+                    <div class="category-content">
+                        <ul class="menu-list">
+                            <li class="menu-item"><span class="heart-icon">♥</span>STRAWBERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>BLUEBERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>GREEN APPLE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>MANGO</li>
+                        </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers">
+                                <span class="price-col">69</span>
+                                <span class="price-col">59</span>
+                            </div>
+                            <div class="price-row-labels">
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FRUIT REFRESHERS -->
+                <div class="menu-category">
+                    <div class="category-header">FRUIT REFRESHERS</div>
+                    <div class="category-content">
+                        <ul class="menu-list">
+                            <li class="menu-item"><span class="heart-icon">♥</span>STRAWBERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>BLUEBERRY</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>FOUR SEASON</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>GREEN APPLE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>MANGO</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>LYCHEE</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>BLUE LEMONADE</li>
+                        </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers" style="gap:15px;">
+                                <span class="price-col">59</span>
+                                <span class="price-col">39</span>
+                                <span class="price-col">29</span>
+                            </div>
+                            <div class="price-row-labels" style="gap:15px;">
+                                <span class="label-col">1 Liter</span>
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="menu-list" style="margin-top:15px;">
+                            <li class="menu-item"><span class="heart-icon">♥</span>APPLE TEA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>BLUEBERRY TEA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>LYCHEE TEA</li>
+                            <li class="menu-item"><span class="heart-icon">♥</span>STRAWBERRY TEA</li>
+                        </ul>
+                        <div class="price-display-block">
+                            <div class="price-row-numbers" style="gap:15px;">
+                                <span class="price-col">69</span>
+                                <span class="price-col">49</span>
+                                <span class="price-col">39</span>
+                            </div>
+                            <div class="price-row-labels" style="gap:15px;">
+                                <span class="label-col">1 Liter</span>
+                                <span class="label-col">22 oz</span>
+                                <span class="label-col">16 oz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADD ONS -->
+                <div class="menu-category">
+                    <div class="category-header">-- ADD ONS --</div>
+                    <div class="category-content">
+                        <div class="add-ons-line"><span><span class="heart-icon">♥</span>PEARL</span> <span>10</span></div>
+                        <div class="add-ons-line"><span><span class="heart-icon">♥</span>CRYSTAL/NATA</span> <span>10</span></div>
+                        <div class="add-ons-line"><span><span class="heart-icon">♥</span>CRUSHED OREO</span> <span>15</span></div>
+                        <div class="add-ons-line"><span><span class="heart-icon">♥</span>WHIPPED CREAM</span> <span>15</span></div>
+                        <div class="add-ons-line"><span><span class="heart-icon">♥</span>CREAM CHEESE</span> <span>15</span></div>
+                        <div class="add-ons-line"><span><span class="heart-icon">♥</span>CHEESECAKE</span> <span>15</span></div>
+                        <div class="add-ons-line"><span><span class="heart-icon">♥</span>EXTRA SHOT COFFEE</span> <span>20</span></div>
+                        <div class="heart-divider">♥</div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- END OF DRINKS GRID -->
 
 
         <!-- ==================== BOARD 2: SNACK MENU ==================== -->
-        <div class="section-separator">🍔 SNACK SERIES</div>
+        <div class="section-title">🍔 SNACK MENU</div>
 
-        <div class="board-grid">
+        <div class="snacks-grid">
             
             <!-- LEFT COLUMN: BURGERS, EGG BUNS, HOTDOGS -->
             <div>
-                <!-- BURGERS CATEGORY -->
+                <!-- BURGERS -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>BURGERS</span> <span>🍔</span>
-                    </div>
+                    <div class="category-header">BURGERS</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">SOLO</span>
-                            <span class="price-col">B1T1</span>
+                        <div style="display:flex; justify-content:flex-end; font-family:'Impact'; font-size:1.1rem; border-bottom:1px dashed #444; margin-bottom:5px;">
+                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
+                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
                         </div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CLASSIC BURGER</span>
-                                    <div class="price-values"><span class="price-col">30</span><span class="price-col">55</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CHEESE BURGER</span>
-                                    <div class="price-values"><span class="price-col">45</span><span class="price-col">85</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>EGG BURGER</span>
-                                    <div class="price-values"><span class="price-col">45</span><span class="price-col">85</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CHEESE & EGG BURGER</span>
-                                    <div class="price-values"><span class="price-col">55</span><span class="price-col">100</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC BURGER</span><div><span>30</span><span style="margin-left:35px;">55</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESE BURGER</span><div><span>45</span><span style="margin-left:35px;">85</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>EGG BURGER</span><div><span>45</span><span style="margin-left:35px;">85</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESE & EGG BURGER</span><div><span>55</span><span style="margin-left:30px;">100</span></div></div></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- EGG BUNS CATEGORY -->
+                <!-- EGG BUNS -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>EGG BUNS</span> <span>🍳</span>
-                    </div>
+                    <div class="category-header">EGG BUNS</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">SOLO</span>
-                            <span class="price-col">B1T1</span>
+                        <div style="display:flex; justify-content:flex-end; font-family:'Impact'; font-size:1.1rem; border-bottom:1px dashed #444; margin-bottom:5px;">
+                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
+                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
                         </div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CLASSIC EGG BUN</span>
-                                    <div class="price-values"><span class="price-col">25</span><span class="price-col">45</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CHEESY EGG BUN</span>
-                                    <div class="price-values"><span class="price-col">35</span><span class="price-col">65</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC EGG BUN</span><div><span>25</span><span style="margin-left:35px;">45</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY EGG BUN</span><div><span>35</span><span style="margin-left:35px;">65</span></div></div></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- HOTDOG SANDWICH CATEGORY -->
+                <!-- HOTDOG SANDWICH -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>HOTDOG SANDWICH</span> <span>🌭</span>
-                    </div>
+                    <div class="category-header">HOTDOG SANDWICH</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col">SOLO</span>
-                            <span class="price-col">B1T1</span>
+                        <div style="display:flex; justify-content:flex-end; font-family:'Impact'; font-size:1.1rem; border-bottom:1px dashed #444; margin-bottom:5px;">
+                            <span style="width:50px; text-align:right; margin-left:15px;">SOLO</span>
+                            <span style="width:50px; text-align:right; margin-left:15px;">B1T1</span>
                         </div>
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CLASSIC HOTDOG</span>
-                                    <div class="price-values"><span class="price-col">35</span><span class="price-col">65</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CHEESY HOTDOG</span>
-                                    <div class="price-values"><span class="price-col">50</span><span class="price-col">95</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CLASSIC HUNGARIAN</span>
-                                    <div class="price-values"><span class="price-col">55</span><span class="price-col">100</span></div>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CHEESY HUNGARIAN</span>
-                                    <div class="price-values"><span class="price-col">70</span><span class="price-col">130</span></div>
-                                </div>
-                            </li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC HOTDOG</span><div><span>35</span><span style="margin-left:35px;">65</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY HOTDOG</span><div><span>50</span><span style="margin-left:35px;">95</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC HUNGARIAN</span><div><span>55</span><span style="margin-left:30px;">100</span></div></div></li>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CHEESY HUNGARIAN</span><div><span>70</span><span style="margin-left:25px;">130</span></div></div></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- MIX & MATCH COMBO BOX -->
+                <!-- MIX & MATCH COMBO -->
                 <div class="bottom-box">
-                    <div class="combo-title">MIX & MATCH COMBO!</div>
-                    <div class="combo-details">
-                        ANY DRINK + ANY SNACK = LESS 10 PESOS
-                    </div>
+                    <div style="font-size: 1.8rem; font-weight: 900; margin-bottom: 10px;">MIX & MATCH COMBO!</div>
+                    <div style="font-size: 1.3rem; line-height: 1.5;">ANY DRINK + ANY SNACK = LESS 10 PESOS</div>
                 </div>
             </div>
 
             <!-- RIGHT COLUMN: FRIES, NACHOS, WAFFLES -->
             <div>
-                <!-- FRIES CATEGORY -->
+                <!-- FRIES -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>FRIES (166g)</span> <span>🍟</span>
-                    </div>
+                    <div class="category-header">FRIES (166g)</div>
                     <div class="category-content">
-                        <div class="price-header">
-                            <span class="price-col" style="width:75px;">PRICE</span>
-                        </div>
                         <ul class="menu-list">
                             <li class="menu-item">
                                 <div class="item-main">
                                     <span><span class="heart-icon">♥</span>CLASSIC FRIES</span>
-                                    <div class="price-values"><span class="price-col" style="width:75px;">50 | 35<span style="font-size:0.6rem; display:block; color:#aaa;">HALF FRIES</span></span></div>
+                                    <span style="font-family:'Impact'; font-size:1.2rem;">50 | 35 <span style="font-size:0.7rem; font-family:'Arial'; font-weight:normal; color:#aaa;">HALF</span></span>
                                 </div>
                                 <div class="item-subtext">• CHEESE &nbsp;&nbsp;&nbsp;&nbsp; • BBQ</div>
                                 <div class="item-subtext">• SOURCREAM • CHILI BBQ</div>
                             </li>
                             <li class="menu-item" style="margin-top:15px;">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CHEESY FRIES</span>
-                                    <div class="price-values"><span class="price-col">70</span></div>
-                                </div>
+                                <div class="item-main"><span><span class="heart-icon">♥</span>CHEESY FRIES</span><span style="font-family:'Impact'; font-size:1.2rem;">70</span></div>
                             </li>
                             <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>SHAWARMA FRIES</span>
-                                    <div class="price-values"><span class="price-col">80</span></div>
-                                </div>
+                                <div class="item-main"><span><span class="heart-icon">♥</span>SHAWARMA FRIES</span><span style="font-family:'Impact'; font-size:1.2rem;">80</span></div>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- NACHOS CATEGORY -->
+                <!-- NACHOS -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>NACHOS</span> <span>🇲🇽</span>
-                    </div>
+                    <div class="category-header">NACHOS</div>
                     <div class="category-content">
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CLASSIC NACHOS</span>
-                                    <span class="item-price">50</span>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>OVERLOAD</span>
-                                    <span class="item-price">100</span>
-                                </div>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC NACHOS</span><span style="font-family:'Impact'; font-size:1.2rem;">50</span></div></li>
+                            <li class="menu-item" style="margin-top:5px;">
+                                <div class="item-main"><span><span class="heart-icon">♥</span>OVERLOAD</span><span style="font-family:'Impact'; font-size:1.2rem;">100</span></div>
                                 <div class="item-subtext">NACHOS • FRIES • SHREDDED CHEESE</div>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- WAFFLE CATEGORY -->
+                <!-- WAFFLE -->
                 <div class="menu-category">
-                    <div class="category-header">
-                        <span>WAFFLE</span> <span>🧇</span>
-                    </div>
+                    <div class="category-header">WAFFLE</div>
                     <div class="category-content">
                         <ul class="menu-list">
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>CLASSIC WAFFLE</span>
-                                    <span class="item-price">25</span>
-                                </div>
-                            </li>
-                            <li class="menu-item">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>WAFFLE DRIZZLE</span>
-                                    <span class="item-price">35</span>
-                                </div>
+                            <li class="menu-item"><div class="item-main"><span><span class="heart-icon">♥</span>CLASSIC WAFFLE</span><span style="font-family:'Impact'; font-size:1.2rem;">25</span></div></li>
+                            <li class="menu-item" style="margin-top:5px;">
+                                <div class="item-main"><span><span class="heart-icon">♥</span>WAFFLE DRIZZLE</span><span style="font-family:'Impact'; font-size:1.2rem;">35</span></div>
                                 <div class="item-subtext">• CHOCOLATE SYRUP &nbsp;&nbsp; • CARAMEL SYRUP</div>
                             </li>
                             <li class="menu-item" style="margin-top:10px;">
-                                <div class="item-main">
-                                    <span><span class="heart-icon">♥</span>WAFFLE CLOUD</span>
-                                    <span class="item-price">50</span>
-                                </div>
+                                <div class="item-main"><span><span class="heart-icon">♥</span>WAFFLE CLOUD (OREO FUDGE)</span><span style="font-family:'Impact'; font-size:1.2rem;">50</span></div>
                                 <div class="item-subtext" style="color:#ffffff; font-weight:bold; margin-top:5px;">CHOOSE YOUR DRIZZLE & TOPPING</div>
                                 <div style="display:flex; justify-content:space-between; margin-top:5px;">
-                                    <div class="item-subtext" style="padding-left:18px;"><strong>#1 YOUR DRIZZLE</strong><br>• STRAWBERRY<br>• CHOCOLATE<br>• BLUEBERRY<br>• CARAMEL</div>
-                                    <div class="item-subtext"><strong>#2 YOUR TOPPINGS</strong><br>• CHOCO CHIPS<br>• MARSHMALLOW<br>• CRUSHED OREO</div>
+                                    <div class="item-subtext" style="padding-left:15px;"><strong>#1 DRIZZLE</strong><br>• STRAWBERRY<br>• CHOCOLATE<br>• BLUEBERRY<br>• CARAMEL</div>
+                                    <div class="item-subtext"><strong>#2 TOPPING</strong><br>• CHOCO CHIPS<br>• MARSHMALLOW<br>• CRUSHED OREO</div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- ADVANCE ORDER SIGNAGE FROM BOARD -->
+                <!-- ADVANCE ORDER -->
                 <div class="advance-box">
                     <div class="advance-header">SKIP THE LINE! ADVANCE ORDER & PICK UP</div>
-                    <div class="advance-body">
+                    <div style="padding: 12px; font-size: 0.85rem; font-weight: bold; line-height: 1.5;">
                         MESSAGE US VIA FACEBOOK/MESSENGER:<br>
-                        <span style="font-size:1.1rem; color:#fff;">SIPS AND SNACK - MANGGAHAN</span><br>
-                        OR TEXT/CALL: <span style="color:#fff;">09956376929</span>
+                        <span style="font-size:1rem; color:#fff; font-family:'Impact'; letter-spacing:1px;">SIPS AND SNACK - MANGGAHAN</span><br>
+                        OR TEXT/CALL: <span style="color:#fff; font-family:'Impact';">09956376929</span>
                     </div>
                 </div>
             </div>
 
-        </div> <!-- END OF BOARD GRID -->
+        </div> <!-- END OF SNACKS GRID -->
 
-        <!-- Interaction Wall Extension -->
-        <div class="bottom-box" style="border-style: dotted;">
-            <div class="combo-title" style="font-size:1.4rem; margin:0;">✍️ WHAT'S ON YOUR MIND?</div>
-            <div class="item-subtext" style="text-align:center; padding:0; margin-top:5px; color:#aaa;">Visit our interaction freedom wall corner inside the shop to post your thoughts!</div>
+        <!-- Interaction Freedom Wall Segment -->
+        <div class="bottom-box" style="margin-top:25px; border-style: dotted;">
+            <div style="font-size:1.4rem; margin:0;">✍️ WHAT'S ON YOUR MIND?</div>
+            <div style="font-family:'Arial'; font-size:0.85rem; margin-top:5px; color:#aaa; font-weight:bold;">Visit our interaction freedom wall corner inside the shop to post your thoughts!</div>
         </div>
 
-        <!-- Footer Contact Info -->
         <footer>
             <p>📍 Manggahan, Pasig City | Owner & Operator: Mycha</p>
             <p>&copy; 2026 Sips and Snack Corner. All rights reserved.</p>
